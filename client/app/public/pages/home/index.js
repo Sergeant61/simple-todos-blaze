@@ -1,6 +1,6 @@
 Template.publicPageHome.onCreated(function () {
   this.state = new ReactiveDict(null, {
-    todos:[]
+    todos: []
   });
 });
 
@@ -13,17 +13,18 @@ Template.publicPageHome.helpers({
 Template.publicPageHome.onRendered(function () {
   const self = this;
 
-  this.autorun(function() {
+  this.autorun(function () {
+    AppUtil.refreshTokens.get('todos');
 
-    Meteor.call('todos.list', {}, function(error, result) { 
-      if (error) { 
-        console.log('error', error); 
-      } 
-      if (result) { 
+    Meteor.call('todos.list', {}, function (error, result) {
+      if (error) {
+        console.log('error', error);
+      }
+      if (result) {
 
-          console.log(result);
-         self.state.set('todos',result);
-      } 
+        console.log(result);
+        self.state.set('todos', result);
+      }
     });
   });
 });
