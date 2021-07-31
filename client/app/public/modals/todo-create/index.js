@@ -1,4 +1,15 @@
+import bootstrap from "bootstrap";
 
+Template.publicModalTodoCreate.onRendered(function() {
+  const self = this;
+
+  const modalElement = document.getElementById('brdPublicModalTodoCreateModal');
+  this.modal = new bootstrap.Modal(modalElement);
+
+  modalElement.addEventListener('hidden.bs.modal', function (event) {
+    self.$('form#brdPublicModalTodoCreateForm').trigger("reset");
+  });
+});
 
 Template.publicModalTodoCreate.events({
   'submit form#brdPublicModalTodoCreateForm': function (event, template) {
@@ -22,6 +33,7 @@ Template.publicModalTodoCreate.events({
 
       AppUtil.refreshTokens.set('todos', Random.id());
       event.target.reset();
+      template.modal.hide();
     });
   }
 });
