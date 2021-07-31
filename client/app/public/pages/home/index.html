@@ -1,0 +1,49 @@
+<template name="publicPageHome">
+
+  {{#let _todos=(state.get 'todos')}}
+
+    <div class="container py-4">
+
+      <div class="d-flex">
+        <h4>Merhaba Meteor.js {{name}}</h4>
+
+        <div class="ms-auto">
+          <button class="btn btn-success btn-sm float-end" data-bs-toggle="modal" data-bs-target="#brdPublicModalTodoCreateModal">Ekle</button>
+        </div>
+      </div>
+
+      <ul class="list-group">
+        {{#each todos}}
+          <li class="list-group-item">{{name}} <button class="btn btn-danger btn-sm float-end">Sil</button> </li>
+        {{/each}}
+      </ul>
+
+    </div>
+
+  {{/let}}
+
+  {{> publicModalTodoCreate}}
+  
+<!-- {{#if eq 1 2}}
+
+{{else}}
+
+{{/if}}
+
+{{#unless eq 1 2}}
+
+{{/unless}}
+
+{{#with todos}}
+
+<h4>Merhaba Meteor.js {{name}}</h4>
+
+{{/with}}
+
+{{#if todos}}
+
+<h4>Merhaba Meteor.js {{todos.name}}</h4>
+
+{{/if}} -->
+
+</template>

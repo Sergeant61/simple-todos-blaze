@@ -1,0 +1,36 @@
+<template name="publicModalTodoCreate"> 
+
+  <div class="modal" id="brdPublicModalTodoCreateModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Todo ekle</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+          <form id="brdPublicModalTodoCreateForm">
+
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="brdPublicModalTodoCreateName" name="name" required placeholder=" ">
+              <label for="brdPublicModalTodoCreateName">Name</label>
+            </div>
+
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="brdPublicModalTodoCreateDescription" name="description" placeholder=" ">
+              <label for="brdPublicModalTodoCreateDescription">Description</label>
+            </div>
+
+          </form>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" form="brdPublicModalTodoCreateForm" class="btn btn-primary">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</template>
