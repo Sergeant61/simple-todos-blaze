@@ -1,0 +1,38 @@
+<template name="publicModalTodoUpdate">
+  {{#let _todo=(appUtil.temp.get 'todo')}}
+    <div class="modal" id="brdPublicModalTodoUpdateModal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Todo düzenle</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          {{#with _todo}}
+            <div class="modal-body">
+
+              <form id="brdPublicModalTodoUpdateForm">
+
+                <div class="form-floating mb-3">
+                  <input type="text" class="form-control" id="brdPublicModalTodoUpdateName" name="name" value="{{name}}" required placeholder=" ">
+                  <label for="brdPublicModalTodoUpdateName">Name</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                  <input type="text" class="form-control" id="brdPublicModalTodoUpdateDescription" name="description" value="{{description}}" placeholder=" ">
+                  <label for="brdPublicModalTodoUpdateDescription">Description</label>
+                </div>
+
+              </form>
+
+            </div>
+          {{/with}}
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" form="brdPublicModalTodoUpdateForm" class="btn btn-primary">Güncele</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  {{/let}}
+
+</template>

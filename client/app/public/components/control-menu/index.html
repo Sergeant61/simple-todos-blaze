@@ -1,0 +1,26 @@
+<template name="publicComponentControlMenu">
+
+  <div class="dropdown dropstart">
+    <a href="#" class="link-dark" data-bs-toggle="dropdown">+</a>
+    <ul class="dropdown-menu">
+      {{#unless isDetailClose}}
+        <li><a class="dropdown-item brd-{{id}}-detail" href="#"><i class="fas fa-info-circle fa-fw"></i> Detay</a></li>
+      {{/unless}}
+
+      {{#if updateRole}}
+        <li><a class="dropdown-item brd-{{id}}-update" href="#"><i class="fas fa-edit fa-fw"></i> Düzenle</a></li>
+      {{/if}}
+
+      {{#if deleteRole}}
+        <li><a class="dropdown-item link-danger brd-{{id}}-remove" href="#"><i class="fas fa-trash-alt fa-fw"></i> Sil</a></li>
+      {{/if}}
+
+      {{#if extrasMenu}}
+        {{#each extrasMenu}}
+          <li><a class="dropdown-item brd-{{id}}" data-data="{{jsonToString ../data}}" href="#">{{#if icon}}<i class="{{icon}} fa-fw"></i>{{/if}} {{name}}</a></li>
+        {{/each}}
+      {{/if}}
+    </ul>
+  </div>
+
+</template>

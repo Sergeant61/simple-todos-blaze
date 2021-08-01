@@ -1,13 +1,13 @@
 import SimpleSchema from 'simpl-schema';
 
 new ValidatedMethod({
-  name: 'todos.create',
+  name: 'todos.delete',
   validate: new SimpleSchema({
-    todo: TodoSchema
+    _id: SimpleSchema.RegEx.Id
   }).validator(),
   run: function (data) {
     this.unblock();
 
-    return Todos.insert(data.todo);
+    return Todos.remove({ _id: data._id });
   }
 });

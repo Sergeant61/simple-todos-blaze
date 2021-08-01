@@ -1,0 +1,33 @@
+<template name="publicComponentTodoCard">
+
+  {{#with todo}}
+    <div class="d-flex my-3">
+
+      <div class="ms-auto">
+        <button class="btn btn-success btn-sm float-end brd-increase">Arttır</button>
+      </div>
+
+      <div class="ms-2">
+        <button class="btn btn-success btn-sm float-end brd-decrease">Azalt</button>
+      </div>
+
+    </div>
+
+    <div class="card h-100 shadow">
+      <div class="card-body">
+        <h5 class="card-title">{{name}}
+          <div class="float-end">{{> publicComponentControlMenu id="todo" updateRole="todo.update" deleteRole="todo.delete" data=this}}</div>
+        </h5>
+        <p class="card-text {{#if gt description.length 5}}text-danger{{/if}}">{{description}} </p>
+      </div>
+      <div class="card-footer text-end">
+
+        <button class="btn btn-warning btn-sm brd-update" data-bs-toggle="modal" data-bs-target="#brdPublicModalTodoUpdateModal">Düzenle</button>
+
+        <button class="btn btn-danger ms-2 btn-sm brd-delete">Sil</button>
+
+      </div>
+    </div>
+  {{/with}}
+
+</template>

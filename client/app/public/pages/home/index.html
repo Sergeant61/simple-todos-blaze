@@ -1,6 +1,6 @@
 <template name="publicPageHome">
 
-  {{#let _todos=(state.get 'todos')}}
+  {{#let _todos=(state.get 'todos') _number=number.get}}
 
     <div class="container py-4">
 
@@ -12,19 +12,30 @@
         </div>
       </div>
 
-      <ul class="list-group py-2">
+      <p>{{_number}}</p>
+
+      <div class="row g-3">
+
         {{#each _todos}}
-          <li class="list-group-item">{{name}} <button class="btn btn-danger btn-sm float-end">Sil</button> </li>
+
+          <div class="col-sm-12 col-md-6 col-lg-4">
+
+            {{> publicComponentTodoCard todo=this number=number}}
+
+          </div>
+
         {{/each}}
-      </ul>
+
+      </div>
 
     </div>
 
   {{/let}}
 
   {{> publicModalTodoCreate}}
-  
-<!-- {{#if eq 1 2}}
+  {{> publicModalTodoUpdate}}
+
+  <!-- {{#if eq 1 2}}
 
 {{else}}
 

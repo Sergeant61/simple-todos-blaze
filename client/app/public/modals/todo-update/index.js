@@ -1,31 +1,35 @@
 import bootstrap from "bootstrap";
 
-Template.publicModalTodoCreate.onRendered(function() {
+Template.publicModalTodoUpdate.onRendered(function () {
   const self = this;
 
-  const modalElement = document.getElementById('brdPublicModalTodoCreateModal');
+  const modalElement = document.getElementById('brdPublicModalTodoUpdateModal');
   this.modal = new bootstrap.Modal(modalElement);
 
   modalElement.addEventListener('hidden.bs.modal', function (event) {
-    self.$('form#brdPublicModalTodoCreateForm').trigger("reset");
+    AppUtil.temp.set('todo', null);
+    self.$('form#brdPublicModalTodoUpdateForm').trigger("reset");
   });
 });
 
-Template.publicModalTodoCreate.events({
-  'submit form#brdPublicModalTodoCreateForm': function (event, template) {
+Template.publicModalTodoUpdate.events({
+  'submit form#brdPublicModalTodoUpdateForm': function (event, template) {
     event.preventDefault();
+
+    const todo = AppUtil.temp.get('todo');
 
     const name = event.target.name.value
     const description = event.target.description.value
 
     const obj = {
+      _id: todo._id,
       todo: {
         name: name,
         description: description,
       }
     }
 
-    Meteor.call('todos.create', obj, function (error, result) {
+    Meteor.call('todos.update', obj, function (error, result) {
       if (error) {
         console.log('error', error);
       }
