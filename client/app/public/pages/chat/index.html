@@ -1,0 +1,78 @@
+<template name="publicPageChat">
+  {{#let _room=(state.get 'room')}}
+    <div class="container py-4">
+
+      <div class="row">
+
+
+        <div class="col-3">
+
+          <div class="d-flex">
+
+            <form id="brdPublicPageChatRoomCreateForm">
+
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="brdPublicPageChatName" name="name" placeholder=" ">
+                <label for="brdPublicPageChatName">Room name</label>
+              </div>
+
+              <button type="submit" form="brdPublicPageChatRoomCreateForm" class="btn btn-primary ms-2">Room create</button>
+
+            </form>
+
+          </div>
+
+          <ul class="list-group py-3">
+            {{#each rooms}}
+              <a href="#" class="list-group-item text-decoration-none brd-select-room">{{name}}</a>
+            {{/each}}
+          </ul>
+
+        </div>
+
+
+        <div class="col-9">
+
+          {{#with _room}}
+            <div class="border mb-2 p-2">
+              <h4>{{name}}</h4>
+            </div>
+          {{/with}}
+
+          <div class="border mb-2 overflow-auto" style="height: 500px;">
+
+            <ul class="list-group">
+              {{#each messages}}
+                <li class="list-group-item border-0"> 
+                  
+                  <div style="width: 300px;" class="{{#if eq currentUser._id userId}}float-end{{/if}} border p-2 rounded">
+                    <p>{{message}}</p>
+                    <div>
+                      <span class="small text-muted">{{userId}}</span>
+                      <span class="float-end small text-muted">{{formatDateTime createdAt}}</span>
+                    </div>
+                  </div>
+                </li>
+              {{/each}}
+            </ul>
+
+          </div>
+
+          {{#if currentUser}}
+            {{#with _room}}
+              <form id="brdPublicPageChatMessageCreateForm" class="d-flex">
+                <input type="text" class="form-control" id="brdPublicPageChatMessage" name="message" placeholder="Message">
+                <button type="submit" form="brdPublicPageChatMessageCreateForm" class="btn btn-primary ms-2">Send</button>
+              </form>
+            {{/with}}
+          {{/if}}
+
+        </div>
+
+
+
+      </div>
+
+    </div>
+  {{/let}}
+</template>

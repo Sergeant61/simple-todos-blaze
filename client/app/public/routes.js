@@ -20,3 +20,10 @@ FlowRouter.route('/about', {
     this.render('publicLayoutDefault', { page: 'publicPageAbout' });
   }
 });
+
+FlowRouter.route('/chat', {
+  name: 'public.chat',
+  action: function (params, queryParams) {
+    this.render('publicLayoutDefault', { page: 'publicPageChat' });
+  }
+});

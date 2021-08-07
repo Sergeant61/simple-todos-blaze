@@ -1,0 +1,49 @@
+<template name="authPageSignUp">
+
+  <div class="authPageSignUp container-fluid bg-light">
+    <div class="d-flex flex-column flex-fill align-items-center h-100">
+
+      <div class="form-sign">
+        <h1 class="fw-bolder display-3">Kayıt Ol</h1>
+        <p class="pb-3">Yeni bir hesap oluştur.</p>
+
+        <form class="brd-loading-section">
+          <div class="form-floating">
+            <input type="text" class="form-control brd-border-bottom-unset" id="name" placeholder="name">
+            <label for="name">Ad</label>
+          </div>
+
+          <div class="form-floating">
+            <input type="text" class="form-control brd-border-bottom-unset brd-border-top-unset" id="lastName" placeholder=" ">
+            <label for="lastName">Soyad</label>
+          </div>
+
+          <div class="form-floating">
+            <input type="email" class="form-control brd-border-bottom-unset brd-border-top-unset" id="emailAddress" placeholder=" ">
+            <label for="emailAddress">E-mail adres</label>
+          </div>
+
+          <div class="form-floating">
+            <input type="password" class="form-control brd-border-bottom-unset brd-border-top-unset" id="password" autocomplete="off" placeholder=" ">
+            <label for="password">Şifre</label>
+          </div>
+
+          <div class="form-floating">
+            <input type="password" class="form-control brd-border-top-unset" id="passwordAgain" autocomplete="off" placeholder=" ">
+            <label for="passwordAgain">Şifre Tekrar</label>
+          </div>
+
+          <div class="d-grid gap-2 py-4">
+            <button class="btn btn-outline-primary btn-lg" type="submit">Kayıt ol</button>
+          </div>
+
+          <div class="d-flex justify-content-between">
+            <a href="/auth/sign-in" class="text-black-50 pt-3">Giriş Yap</a>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+</template>
