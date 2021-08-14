@@ -42,7 +42,8 @@ Template.publicPageChat.events({
 
     Meteor.call('rooms.create', obj, function (error, result) {
       if (error) {
-        console.log('error', error);
+        ErrorHandler.show(error);
+        return;
       }
 
       event.target.reset();

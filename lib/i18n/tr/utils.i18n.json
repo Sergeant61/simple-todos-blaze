@@ -1,0 +1,10 @@
+{
+  "_locale": "tr",
+  "_namespace": "utils",
+
+  "userTypeMixinError": "Bu işlemi yapmaya yetkili değilsiniz!",
+  "roleMixinError": "Bu işlemi yapmaya yetkili değilsiniz!",
+  "notVerified": "İşlemlere devam etmek için önce hesabınızı doğrulamalısınız. Size gönderilen doğrulama bağlantısını tıklayarak hesabınızı doğrulayabilirsiniz.",
+  "signedInMixinError": "Bunu yapmak için giriş yapmalısınız!",
+  "contactTheAdmin": "Yöneticiye başvurmanız gerekiyor!"
+}

@@ -1,0 +1,39 @@
+{
+  "_locale": "en",
+  "_namespace": "globals",
+
+  "ok": "OK",
+  "yes": "Yes",
+  "no": "No",
+
+  "weekdays": {
+    "sun": "Sunday",
+    "mon": "Monday",
+    "tue": "Tuesday",
+    "wed": "Wednesday",
+    "thu": "Thursday",
+    "fri": "Friyday",
+    "sat": "Saturday"
+  },
+
+  "swal": {
+    "successTitle": "Excellent!",
+    "errorTitle": "Oups!",
+    "infoTitle": "Info!",
+    "verifyTitle": "Your account is not verified",
+
+    "areYouSureTitle": "Are you sure?",
+    "willBeDeleteText": "Are you sure you want to delete the record?",
+    "willBeConfirmedText": "Are you sure you want to confirm the registration?",
+    "updated": "Record updated.",
+    "added": "Record added.",
+
+    "successText": "Operation Successful",
+    "forgotPasswordText": "We sent you an email to reset your password.",
+
+    "sendVerification": "Resend verification email",
+
+    "verificationSentTitle": "Submitted",
+    "verificationSentDescription": "Verification link sent!"
+  }
+}

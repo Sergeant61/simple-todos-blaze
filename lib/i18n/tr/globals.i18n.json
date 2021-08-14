@@ -1,0 +1,39 @@
+{
+  "_locale": "tr",
+  "_namespace": "globals",
+
+  "ok": "Tamam",
+  "yes": "Evet",
+  "no": "Hayır",
+
+  "weekdays": {
+    "sun": "Pazar",
+    "mon": "Pazartesi",
+    "tue": "Salı",
+    "wed": "Çarşamba",
+    "thu": "Perşembe",
+    "fri": "Cuma",
+    "sat": "Cumartesi"
+  },
+
+  "swal": {
+    "successTitle": "Mükemmel!",
+    "errorTitle": "Oups!",
+    "infoTitle": "Bilgi!",
+    "verifyTitle": "Hesabınız doğrulanmamış",
+
+    "areYouSureTitle": "Emin misin?",
+    "willBeDeleteText": "Kaydı silmek istediğinize emin misiniz?",
+    "willBeConfirmedText": "Kaydı onaylamak istediğinize emin misiniz?",
+    "updated": "Kayıt güncellendi.",
+    "added": "Kayıt eklendi.",
+
+    "successText": "İşlem Başarılı",
+    "forgotPasswordText": "Şifrenizi sıfırlamak için size bir e-posta gönderdik.",
+
+    "sendVerification": "Doğrulama e-postasını yeniden gönder",
+
+    "verificationSentTitle": "Gönderildi",
+    "verificationSentDescription": "Doğrulama linki gönderildi!"
+  }
+}

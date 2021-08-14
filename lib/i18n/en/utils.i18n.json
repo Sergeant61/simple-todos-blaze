@@ -1,0 +1,10 @@
+{
+  "_locale": "en",
+  "_namespace": "utils",
+
+  "userTypeMixinError": "You are not authorized to do this operation!",
+  "roleMixinError": "You are not authorized to do this operation!",
+  "notVerified": "In order to continue transactions, you must first verify your account. You can verify your account by clicking the verification link sent to you.",
+  "signedInMixinError": "You must be logged in to do this!",
+  "contactTheAdmin": "You need to contact the admin!"
+}

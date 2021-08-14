@@ -33,6 +33,10 @@ meteorhacks:ssr
 momentjs:moment
 aldeed:collection2
 http
+universe:i18n
+
+alanning:roles
+percolate:migrations
 
 bordo:loading
 bordo:auto-dates

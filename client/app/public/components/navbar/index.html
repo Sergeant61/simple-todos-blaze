@@ -27,6 +27,8 @@
         </ul>
 
         {{#if currentUser}}
+          <a href="#" class="btn btn-danger brd-logout me-2">Exit</a>
+
           <a href="{{pathFor 'user.myProfile'}}" class="btn btn-success">My Proile</a>
         {{else}}
           <a href="{{pathFor 'auth.signIn'}}" class="btn btn-outline-success">Sign-in</a>

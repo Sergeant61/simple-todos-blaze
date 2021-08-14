@@ -23,6 +23,7 @@ FlowRouter.route('/about', {
 
 FlowRouter.route('/chat', {
   name: 'public.chat',
+  triggersEnter: [MustSignIn],
   action: function (params, queryParams) {
     this.render('publicLayoutDefault', { page: 'publicPageChat' });
   }

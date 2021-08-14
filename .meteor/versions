@@ -1,5 +1,6 @@
 accounts-base@1.9.0
 accounts-password@1.7.1
+alanning:roles@3.3.0
 aldeed:collection2@3.4.1
 allow-deny@1.1.0
 autoupdate@1.7.0
@@ -73,6 +74,7 @@ ordered-dict@1.1.0
 ostrio:flow-router-extra@3.7.5
 ostrio:flow-router-meta@2.1.1
 ostrio:flow-router-title@3.2.1
+percolate:migrations@1.0.2
 promise@0.11.2
 raix:eventemitter@1.0.0
 random@1.2.0
@@ -101,6 +103,7 @@ tracker@1.2.0
 typescript@4.2.2
 ui@1.0.13
 underscore@1.0.10
+universe:i18n@1.31.0
 url@1.3.2
 webapp@1.10.1
 webapp-hashing@1.1.0
