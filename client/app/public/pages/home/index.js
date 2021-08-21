@@ -3,9 +3,25 @@ import Swal from 'sweetalert2';
 Template.publicPageHome.onCreated(function () {
   this.state = new ReactiveDict(null, {
     todos: [],
+    notFound: false,
   });
 
+  this.pagination = new ReactiveDict(null, {
+    currentPage: 1,
+    pageItems: 5,
+    totalCount: 0,
+    totalPages: 0
+  });
+
+  this.sorting = new ReactiveDict(null, {
+    sortField: 'name',
+    sortOrder: 'asc'
+  });
+
+  this.filtering = new ReactiveDict(null, {});
+
   this.number = ReactiveVar(0);
+  this.timeout = null;
 });
 
 Template.publicPageHome.helpers({
@@ -19,15 +35,36 @@ Template.publicPageHome.onRendered(function () {
 
   this.autorun(function () {
     AppUtil.refreshTokens.get('todos');
+    const currentPage = self.pagination.get('currentPage');
+    const pageItems = self.pagination.get('pageItems');
+    const filtering = self.filtering.all();
+    const sorting = self.sorting.all();
 
-    Meteor.call('todos.list', {}, function (error, result) {
+    const obj = {
+      options: {
+        pagination: {
+          currentPage: currentPage,
+          pageItems: pageItems
+        },
+        filtering: filtering,
+        sorting: sorting,
+      }
+    }
+
+    console.log(obj);
+
+    Meteor.call('todos.list', obj, function (error, result) {
       if (error) {
         console.log('error', error);
       }
       if (result) {
 
-        console.log(result);
-        self.state.set('todos', result);
+        self.state.set('todos', result.todos);
+        self.state.set("notFound", result.options.pagination.totalCount === 0);
+        self.pagination.set("currentPage", result.options.pagination.currentPage);
+        self.pagination.set("pageItems", result.options.pagination.pageItems);
+        self.pagination.set("totalCount", result.options.pagination.totalCount);
+        self.pagination.set("totalPages", result.options.pagination.totalPages);
       }
     });
   });
@@ -37,8 +74,6 @@ Template.publicPageHome.events({
   'click .brd-delete': function (event, template) {
 
     const todo = this;
-
-    console.log(this);
 
     Swal.fire({
       title: 'Silmek istiyor musunuz?',
@@ -70,17 +105,13 @@ Template.publicPageHome.events({
 
     const todo = this;
 
-    console.log(this);
-
-    AppUtil.temp.set('todo',this);
+    AppUtil.temp.set('todo', this);
 
   },
   'click .brd-todo-remove': function (event, template) {
     event.preventDefault();
 
     const todo = this.data;
-
-    console.log(this);
 
     Swal.fire({
       title: 'Silmek istiyor musunuz?',
@@ -112,8 +143,54 @@ Template.publicPageHome.events({
     event.preventDefault();
     const todo = this;
 
-    AppUtil.temp.set('todo',this.data);
+    AppUtil.temp.set('todo', this.data);
     $('#brdPublicModalTodoUpdateModal').modal('show');
+  },
+  'keyup .brd-todo-search, input .brd-todo-search': function (event, template) {
+    event.preventDefault();
+
+    const search = event.target.value;
+
+    if (template.timeout) {
+      clearTimeout(template.timeout);
+    }
+
+    template.timeout = setTimeout(function () {
+      template.filtering.set('name', search);
+      template.pagination.set('currentPage', 1);
+    }, 700);
+
+  },
+  'change .brd-todo-sorting': function (event, template) {
+    event.preventDefault();
+
+    const value = event.target.value;
+    const obj = {
+      sortField: '',
+      sortOrder: ''
+    }
+
+    switch (value) {
+      case '1':
+        obj.sortField = 'name';
+        obj.sortOrder = 'asc';
+        break;
+      case '2':
+        obj.sortField = 'name';
+        obj.sortOrder = 'desc';
+        break;
+      case '3':
+        obj.sortField = 'description';
+        obj.sortOrder = 'asc';
+        break;
+      case '4':
+        obj.sortField = 'description';
+        obj.sortOrder = 'desc';
+        break;
+    }
+
+    template.pagination.set('currentPage', 1);
+    template.sorting.set(obj);
   }
 });
 

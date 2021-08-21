@@ -2,7 +2,7 @@ import SimpleSchema from 'simpl-schema';
 
 new ValidatedMethod({
   name: 'messages.create',
-  mixins: [SignedInMixin, RoleMixin],
+  mixins: [SignedInMixin, ],
   roles: ['roles.admin'],
   validate: new SimpleSchema({
     message: MessageSchema.omit('userId')

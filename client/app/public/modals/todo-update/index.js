@@ -35,7 +35,6 @@ Template.publicModalTodoUpdate.events({
       }
 
 
-      console.log(result);
       AppUtil.refreshTokens.set('todos', Random.id());
       event.target.reset();
       template.modal.hide();

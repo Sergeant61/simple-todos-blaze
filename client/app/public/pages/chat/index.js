@@ -74,9 +74,7 @@ Template.publicPageChat.events({
   'click .brd-select-room': function (event, template) {
     event.preventDefault();
 
-    console.log(this);
     template.state.set('room', this);
-
   }
 });
 
