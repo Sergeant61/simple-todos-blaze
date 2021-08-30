@@ -28,3 +28,11 @@ FlowRouter.route('/chat', {
     this.render('publicLayoutDefault', { page: 'publicPageChat' });
   }
 });
+
+FlowRouter.route('/classes', {
+  name: 'public.classes',
+  triggersEnter: [MustSignIn],
+  action: function (params, queryParams) {
+    this.render('publicLayoutDefault', { page: 'publicPageClasses' });
+  }
+});

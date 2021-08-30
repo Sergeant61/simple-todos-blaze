@@ -1,0 +1,61 @@
+<template name="publicPageClasses">
+
+  {{#let _classes=(state.get 'classes') _notFound=(state.get 'notFound')}}
+
+    <div class="container py-4">
+
+      <div class="d-flex">
+        <h4>Sınıflar</h4>
+
+        <div class="ms-auto">
+          <button class="btn btn-success btn-sm float-end" data-bs-toggle="modal" data-bs-target="#brdPublicModalTodoCreateModal">Ekle</button>
+        </div>
+      </div>
+
+      <p>{{_number}}</p>
+
+      <div class="row g-3">
+
+        <div class="col-12">
+
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Handle</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              {{#each _classes}}
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Mark</td>
+                  <td>Otto</td>
+                  <td>@mdo</td>
+                </tr>
+              {{/each}}
+
+            </tbody>
+          </table>
+
+        </div>
+
+        {{#if _notFound}}
+          <div class="py-4 text-center">
+            <h4>Sonuç bulunamadı</h4>
+            <p>Aradığınız kriterlere göre sonuç bulunamadı.</p>
+          </div>
+        {{/if}}
+
+        <div class="col-sm-12 my-5 py-3">
+          {{> componentPagination paginationState=pagination}}
+        </div>
+      </div>
+    </div>
+
+  {{/let}}
+
+</template>
